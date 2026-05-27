@@ -68,8 +68,22 @@ def extract_text_from_path(path: Path) -> str:
 
 # --- Helpers: archivos de referencia ---
 
+BASE_DIR = Path(__file__).parent
+
+
 def load_instructions() -> str:
-    path = Path("instrucciones.txt")
+    path = BASE_DIR / "instrucciones.txt"
+    if path.exists():
+        return extract_text_from_path(path)
+    return ""
+
+
+def load_manual() -> tuple[str, str]:
+    for candidate in ("manual.txt", "manual.docx", "manual.pdf"):
+        path = BASE_DIR / candidate
+        if path.exists():
+            return extract_text_from_path(path), candidate
+    return "", ""
     if path.exists():
         return extract_text_from_path(path)
     return ""
