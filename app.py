@@ -71,6 +71,14 @@ CUSTOM_CSS = """
         border-radius: 0 8px 8px 0;
         padding: 24px 28px;
         margin-top: 8px;
+        color: #444444;
+    }
+    .informe-container h1, .informe-container h2,
+    .informe-container h3, .informe-container h4 {
+        color: #1B3A6B;
+    }
+    .informe-container strong {
+        color: #1B2340;
     }
 
     /* Sidebar */
@@ -367,14 +375,8 @@ if st.button("🔍 Generar informe de revisión", type="primary", use_container_
     try:
         for chunk in stream_report(contract_text, instructions, manual_text, api_key):
             full_report += chunk
-            report_area.markdown(
-                f'<div class="informe-container">{full_report}▌</div>',
-                unsafe_allow_html=True,
-            )
-        report_area.markdown(
-            f'<div class="informe-container">{full_report}</div>',
-            unsafe_allow_html=True,
-        )
+            report_area.markdown(full_report + "▌")
+        report_area.markdown(full_report)
 
     except anthropic.AuthenticationError:
         st.error("❌ API key incorrecta. Revisa el valor en los Secrets de Streamlit Cloud.")
