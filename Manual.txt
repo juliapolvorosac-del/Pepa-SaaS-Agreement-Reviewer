@@ -1,0 +1,281 @@
+MANUAL DE REVISIÓN – CONTRATACIÓN SAAS
+Manual | Contratación SaaS (prestación de servicios)
+Fecha Inicial | 27 de abril de 2026
+Última Actualización | 27 de abril de 2026 (v1)
+Empresas | Aplicable a todas las empresas del grupo PEPA (en adelante, “PEPA”).
+Finalidad | El presente manual se ha redactado para fijar los criterios mediante los cuales analizar los contratos proporcionados por los proveedores de SaaS, específicamente en las siguientes categorías. Cláusulas de contrataciónCumplimiento del RGPDCumplimiento de la IA ActEl presente manual se ha redactado a efectos de su uso conjunto con modelos de lenguaje (en adelante, “LLM”).
+Autor | Departamento Jurídico
+Aprobación | Dirección Jurídica
+
+
+ÁMBITO DE APLICACIÓN
+Debido a la gran cantidad de contratos de prestación de servicios de software (en adelante, “SaaS”) revisados por el Departamento Jurídico, se considera apropiado crear un manual para la revisión de éstos para que, en conjunción con el LLM de aplicación en la compañía, se puedan generar informes en los que se indique y cuantifique los riesgos derivados de: 
+Las cláusulas de contratación. 
+Cumplimiento por parte del proveedor de sus obligaciones de protección de datos personales, en caso de ser aplicable. 
+Cumplimiento por parte del proveedor de sus obligaciones derivadas de la IA Act, en caso de ser aplicable.
+
+A los efectos del presente manual, se incluirán las licencias de uso de software en la nube, plataformas de gestión empresarial, servicios de infraestructura como servicio con componente de software (PaaS/IaaS con SLA) o soluciones SaaS que incorporen capacidades de Inteligencia Artificial. Se excluye expresamente la aplicación del presente manual a los contratos de desarrollo de software, los contratos de mantenimiento de software on-premise y los contratos de consultoría sin entrega de software.
+
+Este manual contiene una descripción de cada uno de los criterios a considerar a la hora de analizar un contrato SaaS, con la finalidad de que el LLM pueda realizar un informe del contrato para su valoración por el departamento jurídico. Es importante dejar constancia de que el informe generado por el LLM no sustituye a la revisión del abogado in-house encargado de la tarea. 
+
+Es importante tener en consideración que para la correcta ejecución de las tareas asociadas el presente manual debe ser actualizado por parte del Departamento Jurídico cuando ocurran cualquiera de las siguientes circunstancias: (i) una modificación legislativa de la normativa que se cita en el presente manual; o (ii) una modificación de la política de PEPA en relación con las cláusulas comerciales y de servicio. 
+
+1. CLÁUSULAS COMERCIALES Y DE SERVICIO
+
+1.1. Objeto y alcance del servicio
+La cláusula de objeto debe describir con precisión las funcionalidades contratadas, los módulos incluidos y excluidos, los usuarios autorizados y el entorno de uso. La vaguedad en esta cláusula abre la puerta a modificaciones unilaterales del alcance sin compensación.
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Objeto del contrato | Descripción detallada de funcionalidades en anexo técnico; lista de módulos incluidos y excluidos; número de usuarios/licencias; entorno (producción, sandbox). | Descripción básica suficiente para identificar el servicio contratado; posibilidad de solicitar especificación adicional. | Descripción tan vaga que permite al proveedor modificar el alcance unilateralmente; referencia genérica a 'las funcionalidades disponibles en cada momento'.
+Actualizaciones y nuevas versiones | Las actualizaciones de seguridad son automáticas e incluidas. Las nuevas versiones principales se ofrecen con periodo de prueba de 30 días antes de migración forzosa. | Actualizaciones incluidas en el precio. La organización puede retrasar la migración a nueva versión principal por un periodo razonable (mín. 3 meses). | El proveedor puede forzar la actualización sin preaviso; pérdida de funcionalidades en nuevas versiones sin compensación; coste adicional por actualizaciones de seguridad.
+
+
+1.2. Precio y revisión de tarifas
+Las cláusulas de precio deben establecer con claridad el importe, la moneda, el mecanismo de revisión y los límites de incremento. En contratos de larga duración, la indexación descontrolada puede suponer un riesgo presupuestario significativo.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Precio | Precio fijo durante toda la vigencia del contrato. | Precio fijo el primer año; revisión anual limitada al IPC publicado por el INE con preaviso de 60 días. | Proveedor puede modificar precios con preaviso <30 días; incrementos sin límite; precio variable sin techo máximo.
+Facturación | Facturación trimestral anticipada en euros, con pago a 60 días fecha factura. | Facturación trimestral anticipada en euros, con pago a 30 días fecha factura. | Facturación anual en una divisa diferente a euro, con pago a fecha de factura.
+Penalizaciones por impago | Intereses de demora según Ley 3/2004; suspensión del servicio solo tras 30 días de impago no justificado y con preaviso de 15 días. | Intereses de demora razonables; suspensión del servicio con preaviso de 15 días. | Suspensión inmediata por cualquier retraso en el pago; penalizaciones desproporcionadas; el proveedor puede resolver el contrato sin preaviso por impago.
+
+
+1.3. Niveles de Servicio (SLA) 
+El SLA es la garantía contractual de disponibilidad y rendimiento del servicio. Sin un SLA bien definido, la organización carece de mecanismos de compensación ante interrupciones del servicio.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Disponibilidad del servicio | 99,9% de disponibilidad mensual, excluyendo mantenimientos programados comunicados con 48h de antelación; medida desde el lado de PEPA. | 99,5% de disponibilidad mensual; medición objetiva y verificable; ventanas de mantenimiento limitadas a horario nocturno. | Sin SLA definido; 'best efforts' o 'razonable disponibilidad'; ventanas de mantenimiento ilimitadas; disponibilidad medida unilateralmente por el proveedor sin posibilidad de auditoría.
+Créditos por incumplimiento de SLA | Créditos automáticos escalonados: 10% de la cuota mensual por cada 0,1% por debajo del SLA; abono en siguiente factura sin solicitud expresa. | Créditos proporcionales al tiempo de indisponibilidad; solicitud posible en los 30 días siguientes al incidente. | Sin créditos por incumplimiento; créditos simbólicos (< 5%); plazo de solicitud <15 días; créditos sujetos a aprobación discrecional del proveedor.
+Soporte técnico | Soporte P1 (crítico) 24/7 con respuesta <1h y resolución <4h; P2 respuesta <4h y resolución <24h; soporte en español; canal de comunicación dedicado. | Soporte en horario laboral para P1 con respuesta <4h; tiempos de resolución documentados; comunicación en español. | Solo soporte por email sin SLA; soporte en idioma extranjero; tiempos de respuesta no garantizados; sin diferenciación de severidades.
+
+
+1.4. Modificaciones unilaterales del servicio
+Esta es una de las cláusulas más frecuentemente problemáticas en contratos SaaS. El proveedor tiene incentivos para deprecar funcionalidades, cambiar la interfaz o elevar precios, y a menudo incluye cláusulas de modificación unilateral amplias.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Modificación de funcionalidades | El proveedor no puede eliminar funcionalidades contratadas durante la vigencia sin consentimiento; preaviso de 90 días para cambios sustanciales; derecho a resolver sin penalización si el cambio reduce el valor del servicio. | Preaviso de 30 días para cambios sustanciales; derecho a resolver el contrato sin penalización si el cambio es material. | El proveedor puede modificar el servicio en cualquier momento sin preaviso ni derecho de resolución para PEPA; 'continuar usando el servicio implica aceptación de cambios'.
+Cambios en condiciones contractuales | Los cambios en el contrato requieren acuerdo escrito firmado por ambas partes. | El proveedor puede proponer cambios con preaviso de 30 días; PEPA tiene derecho a rechazarlos y resolver sin penalización. | El proveedor puede modificar los términos del contrato con publicación en su web; modificaciones tácitas por uso continuado del servicio.
+
+
+1.5. Ley aplicable y jurisdicción
+La ley aplicable y la jurisdicción competente determinan qué tribunales resolverán los conflictos y qué normativa regirá la interpretación del contrato. Esta cláusula es especialmente relevante en contratos con proveedores no establecidos en España o en la Unión Europea.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Ley aplicable y jurisdicción | Ley española; fueros de los juzgados y tribunales del domicilio social de PEPA; el arbitraje institucional puede pactarse como alternativa opcional. | Ley de un Estado miembro de la UE; jurisdicción ante tribunales de la UE con posibilidad de acudir a tribunales españoles. | Ley de EEUU u otros países terceros; arbitraje obligatorio en sede extranjera sin posibilidad de litigio local; renuncia expresa o implícita al fuero propio de PEPA.
+
+
+2. Propiedad intelectual y datos
+
+2.1. Propiedad de los datos de PEPA 
+La titularidad de los datos de PEPA es un principio irrenunciable. El contrato debe reafirmar explícitamente que los datos pertenecen a PEPA y que el proveedor solo actúa como custodio de los mismos para prestar el servicio.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Titularidad de los datos | Los datos de PEPA son de su propiedad exclusiva en todo momento. El proveedor no adquiere ningún derecho sobre ellos, ni siquiera derivado de su almacenamiento o procesamiento. | Los datos son de PEPA; el proveedor los usa exclusivamente para prestar el servicio contratado. | El proveedor se atribuye derechos de licencia sobre los datos de PEPA; cláusula amplia de uso de datos 'para mejorar el servicio' sin límites; datos considerados propiedad del proveedor tras cierto tiempo.
+Uso de datos para IA / entrenamiento de modelos | El proveedor no puede usar datos de PEPA para entrenar, ajustar o mejorar modelos de IA sin autorización expresa, escrita e informada. | Opt-out disponible y efectivo para el uso de datos en entrenamiento de IA; aplicable retroactivamente. | Los datos de PEPA se usan automáticamente para entrenar modelos sin opt-out; opt-out existente, pero de difícil implementación o con efectos solo prospectivos.
+
+
+
+2.2. Portabilidad y exportación de datos
+
+El derecho a recuperar los datos en un formato utilizable es fundamental, especialmente al finalizar la relación contractual. Sin una cláusula explícita, PEPA puede quedar en situación de lock-in tecnológico.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Derecho de exportación | PEPA puede exportar sus datos en cualquier momento en formatos estándar abiertos (CSV, JSON, XML); sin coste adicional; asistencia técnica en migración incluida. | Exportación posible al finalizar el contrato; al menos un formato estándar; plazo de 30 días para completar la exportación. | Sin derecho de exportación durante la vigencia; solo formatos propietarios; coste prohibitivo para la exportación; datos eliminados inmediatamente al cancelar la suscripción.
+Eliminación de datos al terminar | Eliminación certificada de todos los datos (incluyendo copias de seguridad) en un plazo máximo de 30 días tras la terminación; certificado de destrucción emitido. | Eliminación de datos en 60 días; confirmación escrita de eliminación. | Sin plazo definido para la eliminación; el proveedor retiene datos indefinidamente 'por motivos legales'; sin posibilidad de obtener confirmación de eliminación.
+
+
+
+2.3. Confidencialidad
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Obligación de confidencialidad | Obligación recíproca que sobrevive a la terminación del contrato de forma indefinida; cubre datos de PEPA, condiciones económicas del contrato y toda información técnica y de negocio. | Obligación mínima de 5 años tras la terminación; definición clara de información confidencial; excepciones tasadas y razonables (info pública, requerimiento legal). | Obligación solo durante la vigencia; excepciones amplias que vacían el concepto; obligación unilateral de PEPA; sin medidas de protección definidas.
+
+
+
+2.4. Propiedad Intelectual del software
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Garantía de no infracción de PI | El proveedor garantiza que es titular o tiene licencia suficiente sobre el software; indemniza a PEPA por reclamaciones de terceros por infracción de PI; defiende a PEPA ante dichas reclamaciones. | El proveedor declara ser titular o tener licencia suficiente; obligación de minimizar el impacto en PEPA ante reclamaciones de terceros. | Sin garantía de no infracción; PEPA asume el riesgo de reclamaciones de terceros; el proveedor puede terminar el servicio sin compensación si se produce una reclamación de PI.
+
+
+3. Responsabilidad y garantías
+3.1. Limitación de responsabilidad
+La limitación de responsabilidad (liability cap) define el techo de exposición del proveedor. En contratos SaaS, es habitual, pero debe ser proporcional al riesgo real y excluir explícitamente los incumplimientos graves.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Cap de responsabilidad | Cap máximo equivalente a 12 meses de fees pagados en los 12 meses anteriores al evento dañoso; cap no aplica a incumplimientos RGPD, brechas de seguridad ni infracciones dolosas. | Cap de 6 meses de fees; exclusiones para dolo y culpa grave; cap no aplica a obligaciones de confidencialidad. | Cap inferior a 3 meses; cap también aplica a incumplimientos RGPD o de seguridad de datos; sin exclusión para el dolo; cap fijo independiente de los fees pagados.
+Exclusión de daños indirectos | Exclusión de lucro cesante limitada a casos en que el proveedor no incurrió en dolo ni culpa grave; daños directos siempre cubiertos sin límite adicional al cap. | La exclusión de daños indirectos solo opera si el proveedor no incurrió en dolo o culpa grave. | Exclusión total de lucro cesante y daños indirectos incluso en casos de dolo, fraude o incumplimiento doloso; PEPA renuncia preventivamente a acciones legales.
+Indemnización por terceros | El proveedor indemniza a PEPA por reclamaciones de terceros derivadas de: (i) infracción de PI, (ii) incumplimientos RGPD imputables al proveedor, (iii) negligencia o conducta ilícita del proveedor. | Indemnización por infracciones de PI; cooperación en la defensa ante reclamaciones por incumplimiento RGPD imputables al proveedor. | Sin obligación de indemnizar; PEPA asume todos los riesgos derivados de reclamaciones de terceros, incluidas las causadas por negligencia del proveedor.
+
+
+3.2. Continuidad del negocio
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Plan de continuidad (BCP/DRP) | El proveedor dispone de BCP y DRP documentados y probados anualmente; RTO máximo de 4h y RPO máximo de 1h para datos críticos; resultados de pruebas disponibles a solicitud. | El proveedor dispone de plan de continuidad; RTO y RPO definidos y contractualmente vinculantes. | Sin BCP/DRP documentado; sin compromisos de recuperación; el proveedor no facilita información sobre continuidad del negocio.
+Escenario de insolvencia / cierre del proveedor | En caso de insolvencia o cese de actividad, el proveedor (o liquidador) garantiza acceso al servicio durante 90 días para migración; datos exportables de forma gratuita. | En caso de cierre, plazo mínimo de 30 días para exportar datos; notificación previa con al menos 60 días de antelación si es cierre planificado. | Sin protección frente a insolvencia del proveedor; datos inaccesibles en caso de cese de actividad; sin obligación de notificación previa.
+
+
+4. Duración, renovación y terminación
+
+4.1. Duración y renovación automática
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Periodo inicial y renovación | Periodo inicial de 12 meses; renovación automática por periodos de 12 meses; preaviso de no renovación de 90 días antes del vencimiento; notificación recordatoria del proveedor 120 días antes. | Renovación automática con preaviso de no renovación de 30 días; claridad sobre la fecha de vencimiento. | Preaviso de no renovación <15 días; renovación automática por periodos >1 año sin notificación; el proveedor no comunica la próxima renovación; renovación tácita sin posibilidad de salida.
+
+
+
+4.2. Causas de terminación anticipada
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Terminación por incumplimiento | Resolución por incumplimiento material con preaviso de 15 días y sin oportunidad de subsanación si el incumplimiento es reiterado; resolución inmediata por incumplimiento grave de RGPD. | Resolución por incumplimiento material con preaviso de 30 días y oportunidad de subsanación. | Solo se puede resolver al final del periodo contractual; sin derecho de resolución anticipada por incumplimiento grave; PEPA no puede resolver aunque el servicio sea inutilizable.
+Terminación por conveniencia | PEPA puede resolver el contrato con preaviso de 30 días, pagando únicamente el servicio recibido hasta la fecha de terminación. | PEPA puede resolver con preaviso razonable (max. 60 días) con penalización proporcional a los meses restantes (máx. 3 meses de fees). | Sin derecho de terminación anticipada; penalización equivalente al 100% de los fees pendientes; cláusula penal desproporcionada.
+
+
+
+4.3. Obligaciones post-terminación
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Periodo de transición | El proveedor mantiene el servicio activo durante 30 días tras la terminación a precio prorrateado para facilitar la migración; asistencia técnica incluida. | Acceso de solo lectura durante 15 días para exportar datos; sin coste adicional. | Acceso cancelado inmediatamente al terminar el contrato; datos eliminados sin posibilidad de exportación; coste prohibitivo para el periodo de transición.
+Certificación de eliminación de datos | Certificado escrito de eliminación completa de todos los datos (incluyendo backups y copias en subencargados) en un plazo máximo de 30 días desde la finalización del periodo de transición. | Confirmación escrita de eliminación de datos de PEPA en 60 días desde la finalización del periodo de transición. | Sin certificación de eliminación; el proveedor retiene datos indefinidamente; no hay mecanismo para verificar la destrucción.
+
+
+4.4. Cambio de control y cesión del contrato
+El cambio de control del proveedor mediante adquisición, fusión o escisión puede alterar de forma sustancial las condiciones del servicio y la identidad del prestador. PEPA debe tener derecho a ser informada y, en su caso, a resolver el contrato sin penalización.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Cambio de control | PEPA es notificada con 60 días de antelación ante cualquier cambio de control del proveedor; derecho de PEPA a resolver el contrato sin penalización en los 30 días siguientes a la notificación. | Notificación del cambio de control en 30 días; derecho de resolución si el adquirente es competidor directo de PEPA. | Sin obligación de notificar el cambio de control; el contrato se transmite automáticamente sin derecho de resolución para PEPA; PEPA queda vinculada con el adquirente sin posibilidad de objeción.
+Cesión del contrato | El proveedor no puede ceder el contrato ni los derechos derivados del mismo sin consentimiento escrito previo de PEPA. | El proveedor puede ceder a sociedades del mismo grupo con notificación previa de 30 días y sin modificación de las condiciones del servicio. | Cesión libre a cualquier tercero sin notificación ni consentimiento; PEPA queda vinculada con el cesionario sin posibilidad de objeción.
+
+
+5. Protección de datos personales (RGPD/DPA)
+Advertencia: Esta sección es de aplicación obligatoria siempre que el servicio SaaS implique el tratamiento de datos personales. En caso de no existir tal tratamiento, omitir. 
+
+5.1. Roles en el tratamiento
+La definición correcta de los roles es el punto de partida del DPA. En la mayoría de los contratos SaaS, PEPA actúa como responsable del tratamiento y el proveedor como encargado. Sin embargo, en algunos servicios el proveedor también puede actuar como responsable independiente (p.ej. para sus propios fines de análisis).
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Roles (Responsable / Encargado) | Roles claramente definidos en el contrato; el proveedor actúa exclusivamente como encargado del tratamiento bajo las instrucciones de PEPA; si el proveedor actúa como corresponsable en algún tratamiento, se delimitan expresamente las responsabilidades de cada parte. | Identificación del proveedor como encargado del tratamiento; referencia expresa al Art. 28 RGPD. | Roles no definidos o ambiguos; el proveedor asume rol de responsable sobre los datos de PEPA sin base jurídica; el contrato no aborda el RGPD.
+Instrucciones del tratamiento | El proveedor solo trata datos personales siguiendo instrucciones documentadas de PEPA; notifica de inmediato si considera que una instrucción infringe el RGPD o la normativa aplicable. | El proveedor solo trata datos para prestar el servicio contratado; no los usa para fines propios. | El proveedor puede tratar datos para sus propios fines (analytics, publicidad, entrenamiento de modelos IA) sin autorización; tratamientos incompatibles con la finalidad original.
+
+
+
+5.2. Subencargados del tratamiento
+El uso de subencargados (proveedores de infraestructura cloud, herramientas de analytics, etc.) es prácticamente inevitable en SaaS. El RGPD exige que el encargado obtenga autorización del responsable para recurrir a subencargados (Art. 28.2).
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Autorización de subencargados | Lista actualizada de subencargados como anexo al contrato; notificación a PEPA con 30 días de antelación ante cualquier cambio; derecho de PEPA a objetar con posibilidad de resolución si el cambio no es acceptable. | Autorización general con notificación previa de cambios con al menos 15 días de antelación; lista de subencargados disponible a solicitud. | Autorización ilimitada sin obligación de notificar; lista de subencargados no disponible; el proveedor puede añadir subencargados sin restricciones.
+Responsabilidad sobre subencargados | El proveedor responde ante PEPA por los actos de sus subencargados como si fueran propios; los subencargados están sujetos a las mismas obligaciones de protección de datos. | El proveedor traslada las obligaciones del DPA a sus subencargados mediante contratos equivalentes. | El proveedor declina responsabilidad por los actos de sus subencargados; las garantías de protección de datos no se extienden a subencargados.
+
+
+5.3. Transferencias internacionales de datos
+Las transferencias de datos personales fuera del Espacio Económico Europeo (EEE) solo son lícitas si existe un mecanismo de garantía adecuado (Art. 44-49 RGPD). En el contexto SaaS, muchos proveedores almacenan o procesan datos en servidores de EEUU u otros países terceros.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Localización de datos | Datos almacenados y procesados exclusivamente en el EEE; PEPA puede elegir la región (p.ej. UE-West); sin transferencias fuera del EEE sin autorización expresa. | Datos almacenados en el EEE por defecto; transferencias fuera del EEE solo con mecanismo de garantía vigente (SCCs, decisión de adecuación). | Datos almacenados fuera del EEE sin garantías; referencia a Privacy Shield (derogado); imposibilidad de conocer la ubicación de los datos; transferencias a países sin decisión de adecuación sin SCCs.
+Cláusulas Contractuales Tipo (SCCs) | SCCs de la Comisión Europea 2021/914 adjuntas al contrato; TIA (Transfer Impact Assessment) disponible para transferencias a EEUU; medidas complementarias documentadas si el TIA revela riesgo. | SCCs vigentes adjuntas o referenciadas para cualquier transferencia fuera del EEE. | SCCs no incluidas; SCCs derogadas (anteriores a 2021); sin evaluación de impacto para transferencias a EEUU; mecanismo de garantía genérico e insuficiente.
+
+
+
+5.4. Medidas de seguridad técnicas y organizativas
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Seguridad del tratamiento (Art. 32 RGPD) | Certificación ISO 27001 o SOC 2 Tipo II vigente; cifrado AES-256 en reposo y TLS 1.2+ en tránsito; gestión de accesos con MFA; auditorías de seguridad anuales por tercero independiente; informes disponibles bajo NDA. | Descripción documentada de medidas de seguridad adecuadas al riesgo; cifrado en tránsito; acceso restringido con control de identidad. | Sin descripción de medidas de seguridad; el proveedor excluye responsabilidad por brechas de seguridad; sin cifrado en tránsito; accesos no controlados.
+
+
+
+5.5. Notificación de brechas de seguridad
+El RGPD exige notificar las brechas de datos a la autoridad de control (AEPD) en 72 horas (Art. 33). Para cumplir este plazo, el proveedor debe notificar a PEPA con la máxima celeridad posible.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Notificación de incidentes de seguridad | Notificación inicial a PEPA en <24 horas desde la detección; informe detallado (qué datos, número de afectados, posible impacto, medidas adoptadas) en 48h; asistencia activa para notificación a AEPD y a los afectados. | Notificación a PEPA en <72 horas con información básica (naturaleza del incidente, datos afectados, medidas iniciales). | Plazo de notificación >72 horas o indefinido; el proveedor notifica solo si considera el riesgo 'significativo'; sin obligación de asistir en la notificación a la autoridad de control.
+
+
+
+5.6. Derechos de los interesados y auditoría
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Asistencia en el ejercicio de derechos ARCO | El proveedor asiste a PEPA para atender solicitudes de acceso, rectificación, supresión, portabilidad y oposición en <5 días hábiles; registro de actividades de tratamiento actualizado y disponible. | El proveedor asiste a PEPA en la atención de derechos en plazo compatible con los 30 días legales; cooperación efectiva. | El proveedor no tiene obligación de cooperar en el ejercicio de derechos ARCO; sin registro de actividades; incapacidad técnica para localizar y exportar datos de un interesado concreto.
+Derecho de auditoría (Art. 28.3.h RGPD) | Derecho de PEPA a auditar el cumplimiento del DPA (directamente o mediante auditor designado) con preaviso de 30 días; certificaciones SOC 2 / ISO 27001 disponibles sin coste; cuestionarios de seguridad respondidos en <15 días. | El proveedor proporciona información suficiente (certificaciones, cuestionarios) para verificar el cumplimiento del DPA. | Sin derecho de auditoría; el proveedor no proporciona evidencias de cumplimiento; coste prohibitivo para ejercer el derecho de auditoría.
+
+
+6. Cumplimiento IA Act
+Advertencia: Esta sección es de aplicación obligatoria siempre que el servicio SaaS incorpore o haga uso de sistemas de inteligencia artificial tal y como se define en el AI Act (Reglamento UE 2024/1689). En caso contrario, omitir. 
+
+6.1. Ámbito de aplicación
+El AI Act define 'sistema de IA' como un sistema basado en machine learning que genera resultados (predicciones, recomendaciones, decisiones) con distintos niveles de autonomía. Verificar si el SaaS contratado incluye alguna de las siguientes capacidades:
+Sistemas de puntuación o clasificación de personas (credit scoring, evaluación de candidatos, análisis de comportamiento)
+Sistemas de recomendación con impacto en decisiones que afectan a personas
+Procesamiento de lenguaje natural (NLP) para análisis de documentos o comunicaciones
+Reconocimiento de imágenes, voz o biométrico
+Sistemas de decisión automatizada en procesos de negocio
+
+6.2. Clasificación del riesgo del sistema de IA
+Riesgo inaceptable | Sistemas prohibidos (Art. 5): scoring social, manipulación subliminal, explotación de vulnerabilidades, identificación biométrica en tiempo real en espacios públicos. → NO contratar bajo ningún concepto.
+Riesgo alto | Sistemas del Anexo III del AI Act: infraestructura crítica, educación, empleo, servicios esenciales, aplicación de ley, migración, justicia. → Verificar marcado CE, documentación técnica y registro en EUDB antes de firmar.
+Riesgo limitado | Chatbots, sistemas que interactúan con personas, sistemas de generación de contenido. → Verificar obligaciones de transparencia (Art. 50).
+Riesgo mínimo | Filtros de spam, videojuegos con IA, sistemas sin impacto en personas. → Sin obligaciones adicionales específicas del AI Act.
+
+
+6.3. Cláusulas para sistemas de IA
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Transparencia sobre el uso de IA | El proveedor documenta qué capacidades de IA incorpora el servicio, para qué finalidad, qué datos usa como entrada y qué tipo de resultados genera; documentación actualizada ante cambios relevantes. | El proveedor informa sobre el uso de IA en el servicio y sobre las decisiones automatizadas con impacto en personas. | El proveedor no revela si el servicio incorpora IA; opacidad total sobre el funcionamiento del sistema; cambios en los modelos de IA sin notificación.
+Decisiones automatizadas (Art. 22 RGPD / AI Act) | Si el sistema toma decisiones automatizadas con efectos jurídicos o significativos sobre personas, PEPA puede desactivar la automatización; mecanismo de revisión humana accesible y efectivo; derecho de explicación implementado. | Identificación de decisiones automatizadas con impacto significativo; derecho del usuario final a solicitar revisión humana en plazo razonable. | Decisiones automatizadas con impacto en personas sin posibilidad de revisión humana; sin información al interesado sobre la existencia de decisión automatizada; imposibilidad de obtener explicación de la decisión.
+Supervisión humana (AI Act Art. 14) | Para sistemas de alto riesgo: medidas de supervisión humana efectiva implementadas y documentadas; posibilidad de ignorar o anular la decisión del sistema; registro de decisiones auditables. | PEPA puede auditar las decisiones del sistema y tiene capacidad de intervención manual. | Sin mecanismo de supervisión humana; el sistema opera de forma completamente autónoma sin posibilidad de intervención; ausencia de registros auditables.
+Datos de entrenamiento y sesgo | El proveedor garantiza que los datos de entrenamiento del modelo son representativos y libres de sesgos ilegítimos; evaluaciones de equidad (fairness) disponibles para sistemas de alto riesgo; sin datos personales de PEPA usados para reentrenamiento sin autorización. | El proveedor declara que los datos de entrenamiento cumplen el AI Act; opt-out para uso de datos en reentrenamiento. | Sin información sobre datos de entrenamiento; uso de datos de PEPA para reentrenar el modelo sin autorización ni posibilidad de opt-out; ausencia de evaluaciones de sesgo.
+
+
+
+
+MÓDULO COMPLEMENTARIO — PROVEEDORES ESTABLECIDOS EN ESTADOS UNIDOS
+
+El presente módulo complementa las secciones 1 a 6 del manual para los contratos con proveedores cuya sede principal se encuentre en Estados Unidos y cuyo contrato se rija por ley estadounidense (federal o estatal). En caso de conflicto entre este módulo y el manual principal, prevalecerán las posiciones aquí recogidas.
+
+Las secciones 5 (RGPD/DPA) y 6 (AI Act) del manual principal siguen siendo de aplicación íntegra, dado el efecto extraterritorial de ambas normas. Lo que cambia en este módulo es el mecanismo concreto de garantía para las transferencias internacionales y la forma de hacer valer esas obligaciones frente a un proveedor no establecido en la UE.
+
+M.1. Ley aplicable, jurisdicción y arbitraje
+Los contratos de proveedores estadounidenses se rigen habitualmente por la ley del estado de Delaware, California o Nueva York, y suelen incluir cláusulas de arbitraje obligatorio como mecanismo de resolución de disputas. El arbitraje no es en sí mismo una posición rechazada; lo relevante es la sede, las reglas institucionales y la ausencia de excepciones para pequeñas reclamaciones.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Ley aplicable | Ley del estado de Delaware, Nueva York o California; PEPA puede invocar las normas imperativas del derecho español y europeo aplicables a la relación (RGPD, AI Act, protección del consumidor si aplica). | Ley de cualquier estado de EEUU con sistema jurídico predecible; reconocimiento expreso de la aplicabilidad del RGPD y el AI Act. | Ley de un estado sin protección razonable; cláusula de renuncia a la aplicación del RGPD o del AI Act; elección de ley que excluya derechos irrenunciables de PEPA bajo derecho europeo.
+Arbitraje y resolución de disputas | Arbitraje internacional bajo reglas ICC o LCIA; sede en Nueva York o Londres; árbitro único para controversias inferiores a 500.000 USD; panel de tres árbitros para cuantías superiores; laudo ejecutable en España bajo el Convenio de Nueva York (1958). PEPA puede acudir a los tribunales ordinarios para medidas cautelares urgentes sin que ello implique renuncia al arbitraje. | Arbitraje bajo reglas AAA o JAMS con sede en EEUU; laudo ejecutable en España bajo el Convenio de Nueva York; excepción de small claims para reclamaciones inferiores a 10.000 USD. | Arbitraje obligatorio sin excepción de pequeñas reclamaciones; class action waiver que impida a PEPA actuar conjuntamente con otros clientes afectados; sumisión exclusiva a tribunales federales o estatales de EEUU sin posibilidad de arbitraje ni de medidas cautelares en España.
+
+
+M.2. Precio y revisión de tarifas
+La referencia al IPC publicado por el INE (Instituto Nacional de Estadística) no es aplicable en contratos regidos por derecho estadounidense. El índice de referencia equivalente es el CPI-U (Consumer Price Index for All Urban Consumers) publicado por el Bureau of Labor Statistics (BLS) de EEUU.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Precio y revisión anual | Precio fijo durante toda la vigencia del contrato. Si se pacta revisión anual, indexada al CPI-U publicado por el BLS con preaviso de 60 días y techo máximo del 5% anual independientemente del CPI. | Revisión anual con techo del 7% anual; preaviso de 30 días; si el incremento supera el techo pactado, PEPA tiene derecho a resolver sin penalización. | Revisión discrecional sin indexación objetiva; incrementos superiores al 10% anual sin derecho de resolución para PEPA; precio variable sin techo máximo.
+Facturación e impago | Intereses de demora al tipo prime rate de la Reserva Federal más 2 puntos porcentuales, o al EURIBOR a 12 meses más 2 puntos, el mayor de los dos; suspensión del servicio solo tras 30 días de impago injustificado y con preaviso escrito de 15 días. | Intereses de demora razonables (máx. 12% anual); suspensión del servicio con preaviso de 15 días. | Intereses superiores al 18% anual; suspensión inmediata ante cualquier retraso; resolución automática del contrato por impago sin preaviso.
+
+
+M.3. Transferencias internacionales de datos (mecanismos UE-EEUU)
+Advertencia: En contratos con proveedores estadounidenses, la transferencia de datos personales de ciudadanos de la UE a EEUU es prácticamente inevitable. Esta sección sustituye a la sección 5.3 del manual principal para este tipo de contratos.
+
+El mecanismo de garantía vigente desde julio de 2023 es el EU-US Data Privacy Framework (DPF), adoptado mediante Decisión de Adecuación de la Comisión Europea. Sin embargo, el DPF tiene antecedentes de invalidación judicial (Safe Harbor en 2015, Privacy Shield en 2020) y ya existen recursos ante el TJUE. Por ello, las SCCs de 2021 deben adjuntarse siempre como mecanismo de respaldo.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Mecanismo de garantía para transferencias a EEUU | El proveedor está certificado en el EU-US Data Privacy Framework (DPF) y mantiene activa su certificación durante toda la vigencia del contrato; las SCCs de la Comisión Europea 2021/914 se adjuntan como mecanismo de respaldo en caso de invalidación del DPF; TIA (Transfer Impact Assessment) documentado y disponible; medidas técnicas complementarias implementadas (cifrado end-to-end, seudonimización de datos en tránsito). | SCCs 2021/914 vigentes adjuntas al contrato; TIA disponible a solicitud en plazo de 15 días; el proveedor se compromete contractualmente a actualizar el mecanismo de garantía si el DPF es invalidado, en un plazo máximo de 90 días. | Sin mecanismo de garantía válido; referencia al Privacy Shield (invalidado por Schrems II en 2020) o al Safe Harbor (invalidado en 2015); DPF como único mecanismo sin SCCs de respaldo; el proveedor no se compromete a mantener el mecanismo actualizado ante una eventual invalidación.
+Representante en la UE (Art. 27 RGPD) | El proveedor designa un representante en la UE conforme al Art. 27 RGPD, domiciliado en un Estado miembro; datos del representante incluidos en el DPA; el representante puede recibir comunicaciones de la AEPD en nombre del proveedor. | El proveedor designa representante en la UE o acredita una excepción válida al Art. 27 RGPD. | Sin representante en la UE cuando es obligatorio; el proveedor niega la aplicabilidad del Art. 27 RGPD; imposibilidad de notificar al proveedor a través de un canal accesible en la UE.
+
+
+M.4. Limitación de responsabilidad
+El derecho estadounidense admite cláusulas de limitación y exclusión de responsabilidad más amplias que el derecho español. Es habitual encontrar en contratos de proveedores US caps muy bajos, exclusiones totales de daños indirectos sin excepción y disclaimers AS IS. Las posiciones de este módulo parten de ese contexto y establecen los mínimos exigibles para PEPA.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Cap de responsabilidad | Cap equivalente a 12 meses de fees; el cap no aplica a: (i) incumplimiento de obligaciones de confidencialidad, (ii) infracciones de propiedad intelectual, (iii) violaciones del DPA/RGPD imputables al proveedor, (iv) fraude o willful misconduct. | Cap de 6 meses de fees; exclusión del cap para fraude y willful misconduct; la exclusión de daños indirectos no aplica a brechas de confidencialidad ni a incumplimientos RGPD. | Cap inferior a 3 meses; mutual cap simétrico que iguala la exposición de ambas partes con independencia de quién incumple; cap también aplicable a fraude o willful misconduct; cap fijo e independiente de los fees pagados.
+Exclusión de daños indirectos | La exclusión de daños indirectos y lucro cesante no aplica en casos de gross negligence, willful misconduct, incumplimiento de confidencialidad ni violaciones del RGPD; los daños directos están siempre cubiertos hasta el cap. | La exclusión de daños indirectos no aplica en casos de fraude o willful misconduct. | Exclusión total de daños indirectos y consecuenciales sin excepción alguna, incluso ante fraude o conducta dolosa; disclaimer AS IS total sin ninguna garantía expresa mínima.
+
+
+M.5. Garantías del software (Warranties)
+Los contratos de proveedores estadounidenses suelen incluir disclaimers AS IS que excluyen todas las garantías implícitas (implied warranties of merchantability y fitness for a particular purpose bajo el Uniform Commercial Code). PEPA debe negociar garantías expresas mínimas que sustituyan a las implícitas excluidas.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Garantía de funcionamiento | El proveedor garantiza expresamente que el software funcionará de forma sustancial conforme a su documentación oficial durante toda la vigencia del contrato; el proveedor aplicará parches de seguridad críticos en un plazo máximo de 72 horas desde su publicación; el proveedor garantiza que el software no contiene malware, puertas traseras ni código malicioso. | Garantía de que el software funcionará conforme a la documentación; warranty period mínimo de 90 días con obligación de subsanar defectos materiales; parches de seguridad críticos en plazo razonable. | Disclaimer AS IS total sin ninguna garantía expresa; exclusión de todas las implied warranties sin garantías expresas de sustitución; sin obligación de corregir defectos ni de aplicar parches de seguridad.
+
+
+M.6. Insolvencia y continuidad del negocio (Chapter 11)
+La insolvencia de un proveedor estadounidense se tramita bajo el Título 11 del US Bankruptcy Code (Chapter 11 para reorganización, Chapter 7 para liquidación). La Section 365(n) del Bankruptcy Code otorga al licenciatario el derecho a mantener sus derechos sobre la licencia de software aunque el deudor rechace el contrato en el procedimiento concursal. Este derecho debe quedar expresamente preservado en el contrato.
+
+CLÁUSULA | POSICIÓN ESTÁNDAR | POSICIÓN MÍNIMA ACEPTABLE | POSICIÓN RECHAZADA
+Protección ante insolvencia (Chapter 11) | El contrato preserva expresamente el derecho de PEPA a acogerse a la Section 365(n) del US Bankruptcy Code; el proveedor depositará el código fuente del software en escrow con un agente neutral independiente (p.ej. Iron Mountain Digital); PEPA es notificada en menos de 5 días hábiles ante cualquier filing de insolvencia voluntario o involuntario. | Notificación de filing de insolvencia en menos de 10 días hábiles; derecho de PEPA a acogerse a la Section 365(n) expresamente reconocido; acceso a los datos de PEPA garantizado durante el procedimiento concursal. | Sin protección ante insolvencia del proveedor; contrato caduca automáticamente con la apertura del concurso sin derecho de PEPA a continuar el uso; sin obligación de notificar el filing; datos de PEPA inaccesibles durante el procedimiento.
+Escrow de código fuente | Acuerdo de software escrow con agente neutral independiente; el código fuente se deposita antes de la firma del contrato y se actualiza con cada versión principal; los eventos de liberación (release events) incluyen insolvencia, cese de actividad y falta de mantenimiento durante más de 6 meses. | Acuerdo de software escrow para software crítico (sistemas que afecten a procesos de negocio esenciales de PEPA); eventos de liberación incluyen insolvencia y cese de actividad. | Sin escrow de código fuente para software crítico; el proveedor se niega a depositar el código fuente en custodia de tercero; eventos de liberación tan restrictivos que hacen el escrow inoperante en la práctica.
+
+
+Nota: Este módulo tiene carácter orientativo y no sustituye el asesoramiento jurídico especializado en derecho estadounidense para contratos de especial relevancia. Para contratos con proveedores US de importe superior a 50.000 USD anuales o que impliquen sistemas de IA de alto riesgo, se recomienda consultar con asesoría externa con experiencia en derecho tecnológico transfronterizo.
