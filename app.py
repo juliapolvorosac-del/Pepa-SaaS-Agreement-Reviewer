@@ -276,7 +276,7 @@ with st.sidebar:
 
     st.markdown("## Estado del sistema")
 
-instructions_preview = load_instructions()
+    instructions_preview = load_instructions()
     manual_text_sidebar, manual_name_sidebar = load_manual()
 
     if instructions_preview:
