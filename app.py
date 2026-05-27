@@ -34,6 +34,21 @@ CUSTOM_CSS = """
         font-weight: 700;
         letter-spacing: -0.5px;
     }
+    .badge-beta {
+        display: inline-block;
+        background-color: #C9A84C;
+        color: #1B3A6B;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        padding: 3px 9px;
+        border-radius: 20px;
+        vertical-align: middle;
+        margin-left: 12px;
+        text-transform: uppercase;
+        position: relative;
+        top: -4px;
+    }
     .pepa-header p {
         color: #C9A84C;
         margin: 6px 0 0 0;
@@ -262,7 +277,7 @@ st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 # Cabecera PEPA
 st.markdown("""
 <div class="pepa-header">
-    <h1>⚖️ PEPA — Revisión preliminar de contratos SaaS</h1>
+    <h1>⚖️ PEPA — Revisión preliminar de contratos SaaS <span class="badge-beta">Beta</span></h1>
     <p>Plataforma de revisión contractual preliminar con IA de conformidad con los estándares de PEPA</p>
     <p class="aviso-cabecera">⚠️ El presente proyecto es educativo y no sustituye el asesoramiento jurídico de un profesional cualificado</p>
 </div>
