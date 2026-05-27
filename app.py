@@ -7,10 +7,98 @@ import docx as python_docx
 import pdfplumber
 
 
+# =====================
+# --- CSS y tema ---
+# =====================
+
+CUSTOM_CSS = """
+<style>
+    /* Ocultar marca de Streamlit */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stDeployButton {display: none;}
+    header[data-testid="stHeader"] {background: transparent;}
+
+    /* Cabecera principal PEPA */
+    .pepa-header {
+        background: linear-gradient(135deg, #1B3A6B 0%, #2D5A9E 100%);
+        padding: 28px 36px;
+        border-radius: 12px;
+        margin-bottom: 28px;
+        box-shadow: 0 4px 16px rgba(27,58,107,0.15);
+    }
+    .pepa-header h1 {
+        color: #FFFFFF;
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+    .pepa-header p {
+        color: #C9A84C;
+        margin: 6px 0 0 0;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    /* Botón principal */
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, #1B3A6B, #2D5A9E);
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px 24px;
+        border-radius: 8px;
+        transition: opacity 0.2s;
+    }
+    .stButton > button[kind="primary"]:hover {
+        opacity: 0.88;
+    }
+
+    /* Informe de revisión */
+    .informe-container {
+        background: #F4F6F9;
+        border-left: 4px solid #1B3A6B;
+        border-radius: 0 8px 8px 0;
+        padding: 24px 28px;
+        margin-top: 8px;
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #F4F6F9;
+        border-right: 1px solid #E0E4EC;
+    }
+    [data-testid="stSidebar"] h2 {
+        color: #1B3A6B;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Divisor */
+    hr {
+        border-color: #E0E4EC;
+    }
+
+    /* Aviso legal en sidebar */
+    .aviso-legal {
+        font-size: 11px;
+        color: #888;
+        border-top: 1px solid #E0E4EC;
+        padding-top: 12px;
+        margin-top: 12px;
+        line-height: 1.5;
+    }
+</style>
+"""
+
+
 # --- Helpers: extracción de texto ---
 
 def extract_text(uploaded_file) -> str:
-    """Extrae texto de un archivo subido por el usuario."""
     name = uploaded_file.name.lower()
     raw = uploaded_file.read()
 
@@ -39,7 +127,6 @@ def extract_text(uploaded_file) -> str:
 
 
 def extract_text_from_path(path: Path) -> str:
-    """Extrae texto de un archivo local (instrucciones, manual)."""
     name = path.name.lower()
 
     if name.endswith(".txt"):
@@ -81,22 +168,6 @@ def load_instructions() -> str:
 def load_manual() -> tuple[str, str]:
     for candidate in ("manual.txt", "manual.docx", "manual.pdf"):
         path = BASE_DIR / candidate
-        if path.exists():
-            return extract_text_from_path(path), candidate
-    return "", ""
-    if path.exists():
-        return extract_text_from_path(path)
-    return ""
-
-
-def load_manual() -> tuple[str, str]:
-    """
-    Busca el manual en la carpeta del proyecto.
-    Acepta: manual.txt, manual.docx, manual.pdf
-    Devuelve (contenido, nombre_archivo) o ("", "") si no existe.
-    """
-    for candidate in ("manual.txt", "manual.docx", "manual.pdf"):
-        path = Path(candidate)
         if path.exists():
             return extract_text_from_path(path), candidate
     return "", ""
@@ -149,74 +220,97 @@ Escribe en español."""
 # =====================
 
 st.set_page_config(
-    page_title="PEPA - Revisión preliminar Contratos SaaS",
+    page_title="PEPA · Revisor Preliminar de Constratos SaaS",
     page_icon="⚖️",
     layout="wide",
 )
 
-st.title("⚖️ PEPA - Revisión preliminar Contratos SaaS")
-st.caption("Sube un Contrato SaaS y obtén un informe de revisión automático basado en las instrucciones corporativas de PEPA.")
-st.caption("El presente proyecto es un proyecto educativo y no sustituye al asesoramiento legal.")
+# Inyectar CSS personalizado
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+# Cabecera PEPA
+st.markdown("""
+<div class="pepa-header">
+    <h1>⚖️ PEPA</h1>
+    <p>Plataforma de revisión contractual preliminar con Inteligencia Artificial</p>
+    <p>Es presente proyecto es educativo y no sustituye al asesoramiento legal</p>
+</div>
+""", unsafe_allow_html=True)
 
 # --- Barra lateral ---
 with st.sidebar:
-    st.header("Cómo usar la app")
+    st.image("https://img.icons8.com/fluency/96/scales.png", width=56)
+    st.markdown("## PEPA Legal Tech")
+    st.markdown("Revisión automatizada de contratos SaaS basada en el manual de posiciones jurídicas de PEPA.")
+    st.divider()
+
+    st.markdown("## Cómo usar")
     st.markdown("""
-1. Coloca `instrucciones.txt` y `manual.txt` (o `.docx`/`.pdf`) en la carpeta del proyecto.
-2. **Sube** el contrato (`.txt`, `.docx` o `.pdf`).
-3. Pulsa **Generar informe**.
-4. Descarga el resultado si lo necesitas.
+1. Sube el contrato (`.txt`, `.docx` o `.pdf`).
+2. Pulsa **Generar informe**.
+3. Revisa el análisis por cláusulas.
+4. Descarga el informe si lo necesitas.
 """)
     st.divider()
-    st.header("Estado de archivos de referencia")
+
+    st.markdown("## Estado del sistema")
+
+    # --- DIAGNÓSTICO TEMPORAL (borrar cuando funcione) ---
+    with st.expander("🔧 Diagnóstico"):
+        import os
+        st.write("**Carpeta de trabajo (cwd):**", os.getcwd())
+        st.write("**Carpeta del script (BASE_DIR):**", str(BASE_DIR))
+        st.write("**Archivos en BASE_DIR:**")
+        try:
+            archivos = list(BASE_DIR.iterdir())
+            for f in archivos:
+                st.write(f"  - {f.name}")
+        except Exception as ex:
+            st.write(f"Error listando: {ex}")
+    # --- FIN DIAGNÓSTICO ---
 
     instructions_preview = load_instructions()
     manual_text_sidebar, manual_name_sidebar = load_manual()
 
     if instructions_preview:
-        st.success("✅ instrucciones.txt cargado")
+        st.success("✅ Instrucciones cargadas")
         with st.expander("Ver instrucciones"):
             st.text(instructions_preview[:600] + ("..." if len(instructions_preview) > 600 else ""))
     else:
-        st.error("❌ `instrucciones.txt` no encontrado")
+        st.error("❌ instrucciones.txt no encontrado")
 
     if manual_text_sidebar:
-        st.success(f"✅ {manual_name_sidebar} cargado ({len(manual_text_sidebar):,} caracteres)")
+        st.success(f"✅ Manual cargado ({len(manual_text_sidebar):,} car.)")
         with st.expander("Ver extracto del manual"):
             st.text(manual_text_sidebar[:600] + ("..." if len(manual_text_sidebar) > 600 else ""))
     else:
-        st.warning("⚠️ Manual no encontrado. La revisión usará estándares genéricos de mercado.")
+        st.warning("⚠️ Manual no encontrado")
 
-    st.divider()
-    st.header("Configuración")
     st.markdown("""
-**API Key de Google:**
-Debe estar definida en `.streamlit/secrets.toml`:
-```toml
-GOOGLE_API_KEY = "AIzaSy..."
-```
-[Obtén tu clave gratuita →](https://aistudio.google.com/apikey)
-""")
+<div class="aviso-legal">
+⚠️ Este análisis es orientativo y no sustituye el asesoramiento jurídico de un profesional cualificado.
+</div>
+""", unsafe_allow_html=True)
 
 # --- Comprobación de API key ---
 api_key = get_api_key()
 if not api_key:
     st.error(
         "❌ No se encontró la API key de Google. "
-        "Añade tu clave en la configuración de Streamlit Cloud (Secrets). "
-        "Consulta la barra lateral para más información."
+        "Añádela en **Settings → Secrets** de tu app en Streamlit Cloud."
     )
     st.stop()
 
 # --- Subida de archivo ---
+st.markdown("### 📂 Documento a revisar")
 uploaded_file = st.file_uploader(
-    "Sube el contrato a revisar",
+    "Sube el contrato",
     type=["txt", "docx", "pdf"],
-    label_visibility="visible",
+    label_visibility="collapsed",
 )
 
 if uploaded_file is None:
-    st.info("👆 Sube un documento para comenzar.")
+    st.info("👆 Sube un contrato en formato .txt, .docx o .pdf para comenzar.")
     st.stop()
 
 # --- Extracción de texto ---
@@ -224,12 +318,12 @@ with st.spinner("Leyendo documento..."):
     contract_text = extract_text(uploaded_file)
 
 if not contract_text.strip():
-    st.error("No se pudo extraer texto del documento. Verifica que el archivo no esté vacío ni protegido.")
+    st.error("No se pudo extraer texto del documento. Verifica que no esté vacío ni protegido con contraseña.")
     st.stop()
 
 col1, col2 = st.columns([3, 1])
 with col1:
-    st.success(f"✅ Documento cargado: **{uploaded_file.name}** ({len(contract_text):,} caracteres)")
+    st.success(f"✅ **{uploaded_file.name}** cargado correctamente ({len(contract_text):,} caracteres)")
 with col2:
     with st.expander("Ver texto extraído"):
         st.text_area(
@@ -241,21 +335,22 @@ with col2:
         )
 
 # --- Botón de análisis ---
+st.markdown("---")
 instructions = load_instructions()
 manual_text, manual_name = load_manual()
 
 if not instructions:
-    st.warning("⚠️ El archivo `instrucciones.txt` está vacío. Añade tus instrucciones antes de continuar.")
+    st.warning("⚠️ El archivo `instrucciones.txt` está vacío.")
     st.stop()
 
 if manual_text:
-    st.info(f"📘 Manual de referencia cargado: **{manual_name}** ({len(manual_text):,} caracteres)")
+    st.info(f"📘 Manual de referencia: **{manual_name}** ({len(manual_text):,} caracteres)")
 else:
-    st.warning("⚠️ No se encontró manual de referencia. La revisión se basará en estándares genéricos de mercado.")
+    st.warning("⚠️ Manual no encontrado — la revisión usará estándares genéricos de mercado.")
 
 if st.button("🔍 Generar informe de revisión", type="primary", use_container_width=True):
-    st.divider()
-    st.subheader("📊 Informe de Revisión")
+    st.markdown("---")
+    st.markdown("### 📊 Informe de Revisión")
 
     report_area = st.empty()
     full_report = ""
@@ -263,20 +358,26 @@ if st.button("🔍 Generar informe de revisión", type="primary", use_container_
     try:
         for chunk in stream_report(contract_text, instructions, manual_text, api_key):
             full_report += chunk
-            report_area.markdown(full_report + "▌")
-        report_area.markdown(full_report)
+            report_area.markdown(
+                f'<div class="informe-container">{full_report}▌</div>',
+                unsafe_allow_html=True,
+            )
+        report_area.markdown(
+            f'<div class="informe-container">{full_report}</div>',
+            unsafe_allow_html=True,
+        )
 
     except Exception as e:
         mensaje = str(e).lower()
         if "api key" in mensaje or "permission" in mensaje or "invalid" in mensaje:
-            st.error("❌ API key incorrecta o no válida. Revisa el valor en los Secrets de Streamlit Cloud.")
+            st.error("❌ API key incorrecta. Revisa el valor en los Secrets de Streamlit Cloud.")
         elif "quota" in mensaje or "resource" in mensaje or "limit" in mensaje:
-            st.error("❌ Límite de uso de Google AI alcanzado. Espera unos minutos e inténtalo de nuevo.")
+            st.error("❌ Límite de uso de Google AI alcanzado. Espera 1-2 minutos e inténtalo de nuevo.")
         else:
             st.error(f"❌ Error inesperado: {e}")
         st.stop()
 
-    st.divider()
+    st.markdown("---")
     st.download_button(
         label="⬇️ Descargar informe (.md)",
         data=full_report,
