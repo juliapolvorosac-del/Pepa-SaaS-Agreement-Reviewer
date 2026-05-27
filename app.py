@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+import anthropic
 import io
 from pathlib import Path
 
@@ -196,16 +196,15 @@ def load_manual() -> tuple[str, str]:
 
 def get_api_key() -> str:
     try:
-        return st.secrets["GOOGLE_API_KEY"]
+        return st.secrets["ANTHROPIC_API_KEY"]
     except Exception:
         return ""
 
 
-# --- Análisis con Gemini ---
+# --- Análisis con Claude ---
 
 def stream_report(contract_text: str, instructions: str, manual_text: str, api_key: str):
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    client = anthropic.Anthropic(api_key=api_key)
 
     manual_block = ""
     if manual_text.strip():
@@ -230,10 +229,13 @@ Genera el informe de revisión siguiendo exactamente las instrucciones proporcio
 Usa formato Markdown con secciones bien definidas, negritas para conceptos clave y listas cuando proceda.
 Escribe en español."""
 
-    response = model.generate_content(prompt, stream=True)
-    for chunk in response:
-        if chunk.text:
-            yield chunk.text
+    with client.messages.stream(
+        model="claude-opus-4-5",
+        max_tokens=8096,
+        messages=[{"role": "user", "content": prompt}],
+    ) as stream:
+        for text in stream.text_stream:
+            yield text
 
 
 # =====================
@@ -374,14 +376,14 @@ if st.button("🔍 Generar informe de revisión", type="primary", use_container_
             unsafe_allow_html=True,
         )
 
+    except anthropic.AuthenticationError:
+        st.error("❌ API key incorrecta. Revisa el valor en los Secrets de Streamlit Cloud.")
+        st.stop()
+    except anthropic.RateLimitError:
+        st.error("❌ Límite de uso alcanzado. Espera unos minutos e inténtalo de nuevo.")
+        st.stop()
     except Exception as e:
-        mensaje = str(e).lower()
-        if "api key" in mensaje or "permission" in mensaje or "invalid" in mensaje:
-            st.error("❌ API key incorrecta. Revisa el valor en los Secrets de Streamlit Cloud.")
-        elif "quota" in mensaje or "resource" in mensaje or "limit" in mensaje:
-            st.error("❌ Límite de uso de Google AI alcanzado. Espera 1-2 minutos e inténtalo de nuevo.")
-        else:
-            st.error(f"❌ Error inesperado: {e}")
+        st.error(f"❌ Error inesperado: {e}")
         st.stop()
 
     st.markdown("---")
