@@ -40,6 +40,14 @@ CUSTOM_CSS = """
         font-size: 15px;
         font-weight: 400;
     }
+    .pepa-header .aviso-cabecera {
+        color: #FFE0A0;
+        margin: 12px 0 0 0;
+        font-size: 13px;
+        font-weight: 400;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        padding-top: 10px;
+    }
 
     /* Botón principal */
     .stButton > button[kind="primary"] {
@@ -67,15 +75,28 @@ CUSTOM_CSS = """
 
     /* Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #F4F6F9;
-        border-right: 1px solid #E0E4EC;
+        background-color: #E8E8E8;
+        border-right: 2px solid #CCCCCC;
     }
     [data-testid="stSidebar"] h2 {
-        color: #1B3A6B;
-        font-size: 15px;
+        color: #333333;
+        font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+    }
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] li,
+    [data-testid="stSidebar"] .stMarkdown {
+        color: #444444;
+    }
+    [data-testid="stSidebar"] .stExpander {
+        background-color: #DCDCDC;
+        border: 1px solid #BBBBBB;
+        border-radius: 6px;
+    }
+    [data-testid="stSidebar"] hr {
+        border-color: #BBBBBB;
     }
 
     /* Divisor */
@@ -220,7 +241,7 @@ Escribe en español."""
 # =====================
 
 st.set_page_config(
-    page_title="PEPA · Revisor Preliminar de Constratos SaaS",
+    page_title="PEPA · Revisor de Contratos",
     page_icon="⚖️",
     layout="wide",
 )
@@ -231,9 +252,9 @@ st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 # Cabecera PEPA
 st.markdown("""
 <div class="pepa-header">
-    <h1>⚖️ PEPA</h1>
-    <p>Plataforma de revisión contractual preliminar con Inteligencia Artificial</p>
-    <p>Es presente proyecto es educativo y no sustituye al asesoramiento legal</p>
+    <h1>⚖️ PEPA — Revisión preliminar de contratos SaaS</h1>
+    <p>Plataforma de revisión contractual preliminar con IA de conformidad con los estándares de PEPA</p>
+    <p class="aviso-cabecera">⚠️ El presente proyecto es educativo y no sustituye el asesoramiento jurídico de un profesional cualificado</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -255,21 +276,7 @@ with st.sidebar:
 
     st.markdown("## Estado del sistema")
 
-    # --- DIAGNÓSTICO TEMPORAL (borrar cuando funcione) ---
-    with st.expander("🔧 Diagnóstico"):
-        import os
-        st.write("**Carpeta de trabajo (cwd):**", os.getcwd())
-        st.write("**Carpeta del script (BASE_DIR):**", str(BASE_DIR))
-        st.write("**Archivos en BASE_DIR:**")
-        try:
-            archivos = list(BASE_DIR.iterdir())
-            for f in archivos:
-                st.write(f"  - {f.name}")
-        except Exception as ex:
-            st.write(f"Error listando: {ex}")
-    # --- FIN DIAGNÓSTICO ---
-
-    instructions_preview = load_instructions()
+instructions_preview = load_instructions()
     manual_text_sidebar, manual_name_sidebar = load_manual()
 
     if instructions_preview:
