@@ -135,13 +135,14 @@ Escribe en español."""
 # =====================
 
 st.set_page_config(
-    page_title="Revisor de Contratos IA",
+    page_title="PEPA - Revisión preliminar Contratos SaaS",
     page_icon="⚖️",
     layout="wide",
 )
 
-st.title("⚖️ Revisor de Contratos con IA")
-st.caption("Sube un contrato y obtén un informe de revisión automático basado en tus propias instrucciones.")
+st.title("⚖️ PEPA - Revisión preliminar Contratos SaaS")
+st.caption("Sube un Contrato SaaS y obtén un informe de revisión automático basado en las instrucciones corporativas de PEPA.")
+st.caption("El presente proyecto es un proyecto educativo y no sustituye al asesoramiento legal.")
 
 # --- Barra lateral ---
 with st.sidebar:
