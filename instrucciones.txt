@@ -69,7 +69,7 @@ Requisitos de certificados de seguro
 
 Estrategia de negociación: Comienza con los elementos del Nivel 1. Ofrece concesiones del Nivel 3 para asegurar victorias del Nivel 2. Nunca cedas en el Nivel 1 sin escalar.
 
-PASO 7. Crea un informe con el siguiente formato de salida
+PASO 7. Crea un informe en formato htlm (que se abrirá en una pestaña nueva)
 Estructura el resultado de la siguiente manera:
 ## Resumen de Revisión del Contrato
 **Documento**: [nombre/identificador del contrato]
